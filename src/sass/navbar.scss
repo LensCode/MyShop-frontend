@@ -1,0 +1,29 @@
+.toolbar{
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    box-shadow: 1px 1px 8px rgb(71, 71, 71) !important;
+    z-index: 110;
+    img{
+        height: 40px;
+        border-radius: 3px;
+    }
+    .spacer{
+      position: absolute;
+      right: 20px;
+      font-size: 18px;
+      font-weight: normal;
+      display: flex;
+      justify-content: baseline;
+    }
+}
+
+.sub_toolbar{
+    margin-top: 60px;
+}
+.main{
+   max-height: calc(90vh - 70px);
+}
+.container{
+    overflow-y: scroll;
+}

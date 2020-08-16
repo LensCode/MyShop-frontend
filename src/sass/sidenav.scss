@@ -1,0 +1,15 @@
+.sidenav{
+    position: absolute;
+    left: 0px;
+    top: 130px;
+    bottom: 0px;
+    background: blue;
+    width: 260px;
+    
+
+}
+.main-content{
+    width: calc(100%-260px);
+    background: rgb(255, 0, 98);
+    margin-left: 260px;
+}
