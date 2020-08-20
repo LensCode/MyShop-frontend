@@ -1,4 +1,4 @@
-    <!-- <mat-toolbar color='primary' class="toolbar">
+<!-- <mat-toolbar color='primary' class="toolbar">
         <img src="../assets/img/logo1.jpg" alt="logo">
         <div class="spacer">
             <mat-icon matBadge="3" matBadgeColor="warn" matBadgeSize="small"
@@ -10,7 +10,7 @@
     <mat-toolbar color="primary" class="sub_toolbar">
         <h1> <mat-icon>menu</mat-icon> tabs</h1>
      </mat-toolbar>
- 
+
     <main ><aside class="sidenav">
         <mat-list role="list">
             <mat-list-item role="listitem">Item 1</mat-list-item>
@@ -23,23 +23,35 @@
        </div>
     </main>
 </div> -->
-
 <div class="example-container">
-    <mat-toolbar color="primary" class="example-toolbar" style="    box-shadow: 0 3px 5px  blue ;
-">
-        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <h1 class="example-app-name">Responsive App</h1>
-      </mat-toolbar>
-      
-    <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #snav fixedTopGap="56" class="sidenav">
-      <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav" (click)="snav.toggle()">{{nav}}</a>
-      </mat-nav-list>
-   </mat-sidenav>
+  <mat-toolbar
+    color="primary"
+    class="example-toolbar"
+    style="box-shadow: 0 3px 5px blue;"
+  >
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
 
-<mat-sidenav-content>
-<router-outlet></router-outlet>
-</mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav fixedTopGap="56" class="sidenav">
+      <mat-nav-list class="navbar">
+        <a
+          mat-list-item
+          routerLink="."
+          *ngFor="let nav of fillerNav"
+          (click)="snav.toggle()"
+          >{{ nav }}</a
+        >
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <h1 class="text-primary">Hello Bootstrap</h1>
+      <button class="btn btn-primary">Clicn=</button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
