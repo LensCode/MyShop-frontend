@@ -16,8 +16,12 @@ export class AppComponent implements OnInit {
     $(".menu").click(function(){
       $("aside ").toggleClass("toggle");
     });
+   
     $("li").click(function(){
-      $("aside ").toggleClass("toggle");
+      $("aside").removeClass("toggle");
+    });
+    $(".main-content").click(function(){
+      $("aside").removeClass("toggle");
     });
   });
  }
