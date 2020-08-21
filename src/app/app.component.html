@@ -30,10 +30,8 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <aside class="sidenav">
-    <app-sidenav></app-sidenav>
-  </aside>
-  <div class="main-content">
-    <router-outlet></router-outlet>
-  </div>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
