@@ -1,4 +1,6 @@
-@import "./sass/navbar.scss";
+@import "./sass/sidenav.scss";
+@import "./sass/header.scss";
+@import "./sass/main-content.scss";
 
 body,
 html {
@@ -32,4 +34,13 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #bdbaba;
+}
+
+@media (max-width: 978px) {
+  .sidenav {
+    left: -260px;
+  }
+  .main-content {
+    margin-left: 0px;
+  }
 }
