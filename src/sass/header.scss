@@ -15,8 +15,13 @@
     .spacer{
         flex: 1 1 auto;
     }
-  
+    mat-menu{
+       
+            outline: none;
+      
+    }
 }
+
 @media(max-width:968px){
     .menu{
         display: block !important;
