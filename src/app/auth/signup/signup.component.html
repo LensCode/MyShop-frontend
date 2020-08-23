@@ -1,1 +1,33 @@
-<p>signup works!</p>
+<div class="login">
+   
+    <div class="card">
+        <div class="img-box">
+          <img src="../../../assets/img/login.svg" alt="login" class="img">
+        </div>
+        <div class="form">
+            <form autocomplete="off" class="d-flex">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email">
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="type" >
+                    <mat-icon matSuffix (click)="onVisible()" *ngIf="!isVisible" class="visible_icon">visibility_off</mat-icon>
+                    <mat-icon matSuffix (click)="onVisible()" *ngIf="isVisible" class="visible_icon">visibility</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput [type]="type" >
+                    <mat-icon matSuffix (click)="onVisible2()" *ngIf="!isVisible2" class="visible_icon">visibility_off</mat-icon>
+                    <mat-icon matSuffix (click)="onVisible2()" *ngIf="isVisible2" class="visible_icon">visibility</mat-icon>
+                  </mat-form-field>
+                  <button type="submit" mat-raised-button color="warn" class="btn_signup">SignUp</button>
+            </form>
+            <button mat-raised-button  class="btn_signup mt-3" routerLink="/auth/signin">Existing User? Login</button>
+        </div>
+    </div>
+      
+</div>
+

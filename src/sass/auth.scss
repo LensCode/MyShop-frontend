@@ -1,0 +1,63 @@
+.login{
+    display: flex;
+    position: fixed;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(assets/img/bg.jpg);
+    background-size: cover;
+    
+    .card{
+        padding: 0px;
+        min-height: 425px;
+        text-align: center;
+        display:flex;
+        flex-direction: row;
+        box-shadow: 1px 2px 8px rgba(58, 57, 57, 0.589);
+        .img-box{
+            margin: -1px;
+            border-top-left-radius: 4.6px;
+            border-bottom-left-radius: 4.6px;
+            background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
+            .img{
+                height: 230px;
+                margin: 40px;
+               
+            }
+        }
+        .form{
+            padding: 50px;
+            form{
+                flex-direction: column;
+                .visible_icon{
+                    cursor: pointer;
+                }
+                
+            }
+            .btn_signup{
+                display: block;
+                border-radius: 4px;
+                width: 100%;
+                outline: none;
+              }
+        }
+    }
+    @media(max-width:768px){
+        .card{
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: 100vw;
+            height: 100vh;
+            .form{
+                padding: 30px;
+            }
+            .img{
+                height: 180px;
+                margin: 40px;
+            }
+        }
+    }
+}
+

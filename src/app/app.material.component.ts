@@ -8,7 +8,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -20,6 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatSidenavModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     MatButtonModule,
@@ -31,6 +34,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatSidenavModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
 })
 export class MaterialModule {}

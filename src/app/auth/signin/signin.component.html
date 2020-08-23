@@ -1,4 +1,30 @@
 <div class="login">
    
+    <div class="card">
+        <div class="img-box">
+          <img src="../../../assets/img/login.svg" alt="login" class="img">
+        </div>
+        <div class="form">
+            <form autocomplete="off" class="d-flex">
 
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput autocomplete="off" >
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="type" >
+                    <mat-icon matSuffix (click)="onVisible()" *ngIf="!isVisible" class="visible_icon">visibility_off</mat-icon>
+                    <mat-icon matSuffix (click)="onVisible()" *ngIf="isVisible" class="visible_icon">visibility</mat-icon>
+                  </mat-form-field>
+                
+                  <button type="submit" mat-raised-button color="warn" class="btn_signup">Login</button>
+            </form>
+             <div class="mt-2">OR</div>
+            <button mat-raised-button  class="btn_signup mt-3" routerLink="/auth/signup">Create an account</button>
+        </div>
+    </div>
+      
 </div>
