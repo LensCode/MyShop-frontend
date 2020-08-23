@@ -1,7 +1,0 @@
-home
-category
-wish list
-your account
-your order
-cart
-buy
