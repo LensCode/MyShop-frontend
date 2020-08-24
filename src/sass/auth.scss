@@ -10,13 +10,14 @@
     
     .card{
         padding: 0px;
-        min-height: 425px;
+        min-height: 444px;
         text-align: center;
         display:flex;
         flex-direction: row;
         box-shadow: 1px 2px 8px rgba(58, 57, 57, 0.589);
         .img-box{
             margin: -1px;
+            padding-top: 10%;
             border-top-left-radius: 4.6px;
             border-bottom-left-radius: 4.6px;
             background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);

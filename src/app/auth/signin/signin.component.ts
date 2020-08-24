@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class SigninComponent implements OnInit {
   isVisible = false;
   type = 'password';
-  constructor() { }
+  loginForm:FormGroup;
+  submitted = false;
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email:['',[Validators.email,Validators.required]],
+      password:['',[Validators.required, Validators.minLength(6)]]
+    });
   }
 
   onVisible(){
@@ -18,5 +25,7 @@ export class SigninComponent implements OnInit {
     this.isVisible === true? this.type = 'text': this.type = 'password';
   }
 
-
+  onLogin(form){
+    this.submitted = true;
+  }
 }
