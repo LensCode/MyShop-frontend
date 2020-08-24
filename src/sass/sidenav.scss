@@ -1,11 +1,11 @@
 .sidenav{
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 60px;
     bottom: 0px;
     background: #fff;
     width: 260px;
-    padding-top: 20px;
+    padding-top: 12px;
     overflow-y: auto;
     z-index: 20;
     transition: left 0.5s ease,width 0.5s ease;
@@ -13,9 +13,19 @@
         list-style: none;
         padding: 0px ;
         li{
-            padding: 8px 20px;
+            padding: 10px 20px 12px;
             &:hover{
-                background-color: rgb(240, 240, 231);
+                background-color: rgba(144, 185, 231, 0.507);
+            }
+
+            a{
+                display:flex ;
+                text-decoration: none;
+
+                span{
+                    margin-left: 8px;
+                    transform: translateY(6px);
+                }
             }
         }
     }
