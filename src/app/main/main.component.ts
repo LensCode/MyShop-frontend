@@ -6,7 +6,7 @@ declare var $:any;
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
+  isLogin = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
         $("aside ").toggleClass("toggle");
       });
      
-      $("li").click(function(){
+      $("mat-list-item").click(function(){
         $("aside").removeClass("toggle");
       });
       $(".main-content").click(function(){

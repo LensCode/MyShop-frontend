@@ -8,8 +8,8 @@
          <span>myShop</span>
          <div class="header-container">
            <div class="spacer"></div>
-           <div> <button mat-flat-button color="accent" routerLink="/auth/signin">Login</button></div>
-           <div class="mr-2">
+           <div> <button mat-flat-button color="accent" routerLink="/auth/signin" class="mr-3">Login</button></div>
+           <div class="mr-2" *ngIf="isLogin">
              <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
              <mat-menu #menu="matMenu">
                <button mat-menu-item style="outline: none;">
@@ -18,7 +18,7 @@
                </button>
                
                <button mat-menu-item>
-                 <mat-icon>get_app</mat-icon>
+                 <mat-icon style="transform: rotate(-180deg);">login</mat-icon>
                  <span>LogOut</span>
                </button>
              </mat-menu>

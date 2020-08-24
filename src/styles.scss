@@ -1,6 +1,6 @@
 @import "./sass/sidenav.scss";
 @import "./sass/header.scss";
-@import "./sass/login.scss";
+@import "./sass/auth.scss";
 @import "./sass/main-content.scss";
 
 body,
@@ -9,10 +9,11 @@ html {
 }
 body {
   padding: 0px;
+  outline: none;
   margin: 0px;
   overflow-x: hidden;
   font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial,
-    Lucida Grande, sans-serif !important;
+    Lucida Grande, sans-serif ;
 }
 
 /* width */
