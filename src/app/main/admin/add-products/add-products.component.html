@@ -2,27 +2,37 @@
   <h1>Add product</h1>
   <div class="row">
     <div class="col-md-8">
-      <mat-card>
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Title</label>
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputEmail1"
-              placeholder="t-shirt"
-            />
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Description</label>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-            ></textarea>
-          </div>
-        </form>
-      </mat-card>
+      <div class="card1">
+        <mat-card>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="t-shirt"
+              />
+            </div>
+            <div class="form-group mb-0">
+              <label for="exampleFormControlTextarea1">Description</label>
+              <p-editor
+                formControlName="description"
+                [style]="{ height: '150px' }"
+              >
+              </p-editor>
+              <!-- <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea> -->
+            </div>
+          </form>
+        </mat-card>
+      </div>
+      <div class="card2 mt-4">
+        <mat-card> simple </mat-card>
+      </div>
     </div>
     <div class="col-md-4">
       <mat-card>Simple card</mat-card>

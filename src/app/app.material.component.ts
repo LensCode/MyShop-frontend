@@ -8,8 +8,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+// Importing ngprime module
+import { EditorModule } from 'primeng/editor';
 
 @NgModule({
   imports: [
@@ -23,7 +26,8 @@ import {MatInputModule} from '@angular/material/input';
     MatSidenavModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    EditorModule,
   ],
   exports: [
     MatButtonModule,
@@ -36,7 +40,8 @@ import {MatInputModule} from '@angular/material/input';
     MatSidenavModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    EditorModule,
   ],
 })
 export class MaterialModule {}
