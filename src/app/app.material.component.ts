@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 // Importing ngprime module
 import { EditorModule } from 'primeng/editor';
@@ -28,6 +29,7 @@ import { EditorModule } from 'primeng/editor';
     MatFormFieldModule,
     MatInputModule,
     EditorModule,
+    MatSelectModule,
   ],
   exports: [
     MatButtonModule,
@@ -42,6 +44,7 @@ import { EditorModule } from 'primeng/editor';
     MatFormFieldModule,
     MatInputModule,
     EditorModule,
+    MatSelectModule,
   ],
 })
 export class MaterialModule {}

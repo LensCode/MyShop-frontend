@@ -31,7 +31,25 @@
         </mat-card>
       </div>
       <div class="card2 mt-4">
-        <mat-card> simple </mat-card>
+        <mat-card>
+          <div class="media-section d-flex justify-content-between">
+            <h3>Media</h3>
+            <div>
+              <button mat-button [matMenuTriggerFor]="belowMenu">
+                <a href="" (click)="foo($event)">Add and url</a>
+
+                <mat-icon aria-hidden="false" aria-label="Example home icon"
+                  >arrow_drop_down</mat-icon
+                >
+              </button>
+              <mat-menu #belowMenu="matMenu" yPosition="below">
+                <button mat-menu-item class="menu1">Item 1</button>
+                <button mat-menu-item class="menu2">Item 2</button>
+              </mat-menu>
+            </div>
+          </div>
+          <div class="file-upload-section mt-3"></div>
+        </mat-card>
       </div>
     </div>
     <div class="col-md-4">
