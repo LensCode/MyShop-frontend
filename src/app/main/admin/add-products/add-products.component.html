@@ -32,7 +32,9 @@
       </div>
       <div class="card2 mt-4">
         <mat-card>
-          <div class="media-section d-flex justify-content-between">
+          <div
+            class="media-section d-flex justify-content-between align-items-baseline"
+          >
             <h3>Media</h3>
             <div>
               <button mat-button [matMenuTriggerFor]="belowMenu">
@@ -48,7 +50,17 @@
               </mat-menu>
             </div>
           </div>
-          <div class="file-upload-section mt-3"></div>
+          <div class="file-upload-section mt-3">
+            <input type="file" />
+            <mat-icon
+              aria-hidden="false"
+              color="warn"
+              aria-label="Example home icon"
+              >backup</mat-icon
+            >
+            <button mat-raised-button color="primary">Primary</button>
+            <p>Or Drop file to uploads</p>
+          </div>
         </mat-card>
       </div>
     </div>
