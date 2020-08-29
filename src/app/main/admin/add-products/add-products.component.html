@@ -50,17 +50,52 @@
               </mat-menu>
             </div>
           </div>
-          <div class="file-upload-section mt-3">
+          <div class="file-upload-section">
             <input type="file" />
             <mat-icon
               aria-hidden="false"
-              color="warn"
+              class="uploads"
               aria-label="Example home icon"
               >backup</mat-icon
             >
-            <button mat-raised-button color="primary">Primary</button>
-            <p>Or Drop file to uploads</p>
+            <button mat-raised-button class="bg-light text-secondary">
+              Add file
+            </button>
+            <p class="text-muted">Or Drop file to uploads</p>
           </div>
+        </mat-card>
+      </div>
+      <!-- card3 -->
+      <div class="card3 mt-3">
+        <mat-card>
+          <h3>Pricing</h3>
+          <div class="pricing-form-section">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Price</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="$ 0.0"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Compare at price</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="$ 0.00"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="borders-bottom">&nbsp;</div>
         </mat-card>
       </div>
     </div>
