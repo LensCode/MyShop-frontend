@@ -1,0 +1,31 @@
+@import '~sass/abstract/variables';
+@media(max-width:768px){
+    .auth__card{
+        flex-direction: column ;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background:red;
+        width: 100vw;
+        height: 100vh;
+        mat-form-field{
+            width: 100%;
+        }
+        .img-box{
+            padding: 0px !important;
+            .img{
+                height: 150px !important;
+                margin: 2rem 40px !important;
+            }
+        }
+    }
+   
+}
+@media(max-width:968px){
+    .sidenav {
+        left: -260px;
+        box-shadow: 0rem 0.1rem 0.5rem $color-grey !important;
+      }
+    .main-content {margin-left: 0px !important;}
+    .toggle.sidenav{left: 0px ;}
+    .menu{display: block !important;}
+}

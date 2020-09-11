@@ -1,0 +1,48 @@
+@import '~sass/components/sidenav';
+@import '~sass/components/header';
+@import '~sass/abstract/mediaquery';
+@import '~sass/abstract/keyframes';
+@import '~sass/abstract/variables';
+
+ .main-container{
+     overflow: hidden;  
+      .main-content{
+        margin-top: 3.8rem;
+        height: calc(100vh - 3.8rem);
+        margin-left: 15rem;
+        padding:1.4rem 1rem;
+        overflow-y: auto;
+        transition: margin-left 0.5s ease;
+      }
+ }
+
+
+.header{
+    display: flex;
+    position: fixed;
+    top: 0rem;
+    right: 0rem;
+    left: 0rem;
+    height: 4rem;
+    width: 100%;
+    background:$color-primary ;
+    ul{
+        display: flex;
+        list-style: none;
+        align-items: center;
+        margin: 0rem;
+        li{
+          padding: 0rem 1rem;
+            a{
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.cart{
+    margin: 0.5rem 0rem;
+    animation: cart 2s infinite;
+    
+  }

@@ -1,0 +1,19 @@
+@import "~sass/abstract/variables";
+@import "~sass/abstract/keyframes";
+
+.gradient{
+     background-clip: text;
+    -moz-text-fill-color: transparent;
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: -webkit-linear-gradient(92deg, $color-yellow-dark, $color-green-dark);
+    -webkit-animation: hue 10s infinite linear;
+    animation: hue 10s infinite linear;
+}
+.inventory_icon{
+    @extend .gradient
+}
+.admin_icon{
+    @extend .gradient
+}
+

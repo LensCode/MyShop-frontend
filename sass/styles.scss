@@ -1,7 +1,7 @@
-@import "./sass/sidenav.scss";
-@import "./sass/header.scss";
-@import "./sass/auth.scss";
-@import "./sass/main-content.scss";
+@import "~sass/components/sidenav";
+@import "~sass/components/header";
+
+
 
 body,
 html {
@@ -12,8 +12,9 @@ body {
   outline: none;
   margin: 0px;
   overflow-x: hidden;
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial,
-    Lucida Grande, sans-serif ;
+  font-family: 'Amiri', serif;
+  font-family: 'Long Cang', cursive;
+ 
 }
 
 /* width */
@@ -40,7 +41,7 @@ body {
 
 @media (max-width: 978px) {
   .sidenav {
-    left: -260px;
+    left: -15rem;
   }
   .main-content {
     margin-left: 0px;
