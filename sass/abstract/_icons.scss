@@ -1,7 +1,7 @@
 @import "~sass/abstract/variables";
 @import "~sass/abstract/keyframes";
 
-.gradient{
+.gradient_icon{
      background-clip: text;
     -moz-text-fill-color: transparent;
 	-webkit-background-clip: text;
@@ -10,10 +10,5 @@
     -webkit-animation: hue 10s infinite linear;
     animation: hue 10s infinite linear;
 }
-.inventory_icon{
-    @extend .gradient
-}
-.admin_icon{
-    @extend .gradient
-}
+
 

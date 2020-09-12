@@ -1,5 +1,6 @@
 @import '~sass/abstract/variables';
 @media(max-width:768px){
+  
     .auth__card{
         flex-direction: column ;
         overflow-y: auto;
@@ -18,6 +19,22 @@
             }
         }
     }
+
+    .main-content{
+        padding: 2rem 0.6rem !important;
+    }
+    .table-container {
+        width: 100% !important;
+        max-width: 100%;
+        overflow: auto;
+        table {
+            width: 800px !important;
+          }
+          mat-paginator {
+              width: 800px !important;
+          }
+      }
+    
    
 }
 @media(max-width:968px){

@@ -1,6 +1,6 @@
 @import "~sass/components/sidenav";
 @import "~sass/components/header";
-
+@import "~sass/abstract/variables";
 
 
 body,
@@ -11,15 +11,18 @@ body {
   padding: 0px;
   outline: none;
   margin: 0px;
+  font-size: 16px;
   overflow-x: hidden;
   font-family: 'Amiri', serif;
   font-family: 'Long Cang', cursive;
+  background: $color-grey-light;
  
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 /* Track */
@@ -47,3 +50,5 @@ body {
     margin-left: 0px;
   }
 }
+
+

@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { InventoryRoutingModule } from './inventory-routing.module';
 import { InventoryComponent } from './inventory.component';
-
+import { MaterialModule } from 'src/app/app.material.component';
 
 @NgModule({
   declarations: [InventoryComponent],
   imports: [
     CommonModule,
-    InventoryRoutingModule
+    InventoryRoutingModule,
+    MaterialModule
   ]
 })
 export class InventoryModule { }

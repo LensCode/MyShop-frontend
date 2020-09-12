@@ -10,7 +10,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -23,7 +25,10 @@ import {MatInputModule} from '@angular/material/input';
     MatSidenavModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -36,7 +41,10 @@ import {MatInputModule} from '@angular/material/input';
     MatSidenavModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule
   ],
 })
 export class MaterialModule {}
