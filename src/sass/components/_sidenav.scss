@@ -1,4 +1,4 @@
-@import '~sass/abstract/variables';
+@import '../abstract/variables';
  .sidenav{
         position: fixed;
         left: 0px;
@@ -10,5 +10,5 @@
         overflow-y: auto;
         z-index: 20;
         transition: left 0.5s ease,width 0.5s ease;
-        
+        border-right: 0.08rem solid $color-grey-medium-2 ;
     }

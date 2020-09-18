@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -21,9 +23,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatToolbarModule,
     MatBadgeModule,
     MatTabsModule,
+    MatDialogModule,
     MatListModule,
     MatSidenavModule,
     MatMenuModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
@@ -32,7 +36,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   ],
   exports: [
     MatButtonModule,
+    MatSelectModule,
     MatCardModule,
+    MatDialogModule,
     MatIconModule,
     MatToolbarModule,
     MatBadgeModule,

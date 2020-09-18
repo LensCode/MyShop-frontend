@@ -1,0 +1,84 @@
+<h1 class="primary__heading">General</h1>
+<!-- store details -->
+<div class="row">
+    <div class="col-lg-4">
+        <h3 class="secondary__heading">Store Details</h3>
+        <p class="paragraph">Myshop and your customer will use this info to contact you.</p>
+    </div>
+    <div class="col-lg-8">
+        <mat-card>
+            <mat-card-content>
+            <form>
+                <mat-form-field class="form_field">
+                    <input type="text" matInput placeholder="Store Name">
+                </mat-form-field>
+                <mat-form-field class="form_field">
+                    <input type="text" matInput placeholder="Store Contact Email">
+                    <mat-hint>We'll use this address if we need to contact you about your store.</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="mt-3 form_field">
+                    <mat-label>Panel color</mat-label>
+                    <mat-select >
+                      <mat-option value="red">Clothing</mat-option>
+                      <mat-option value="green">Toys</mat-option>
+                      <mat-option value="blue">Handcrafts</mat-option>
+                      <mat-option value="blue">Groceries</mat-option>
+                      <mat-option value="blue">Beauty</mat-option>
+                      <mat-option value="blue">Electronics</mat-option>
+
+                    </mat-select>
+                  </mat-form-field>
+                  
+            </form>
+             </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+
+ <!-- store address -->
+<div class="row my-4">
+    <div class="col-lg-4">
+        <h3 class="secondary__heading">Store Address</h3>
+        <p class="paragraph">This address will appear on your invoices.</p>
+     </div>
+    <div class="col-lg-8">
+        <mat-card>
+            <mat-card-content>
+            <form>
+            <mat-form-field class="form_field">
+                <input type="text" matInput placeholder="Legal Name of business">
+            </mat-form-field>
+
+            <mat-form-field class="form_field">
+                <input type="text" matInput placeholder="Phone">
+            </mat-form-field>
+            <mat-form-field class="form_field">
+                <input type="text" matInput placeholder="Street">
+            </mat-form-field>
+            <mat-form-field class="form_field">
+                <input type="text" matInput placeholder="Apartment , Building etc (opt)">
+            </mat-form-field>
+            <div class="d-flex">
+            <mat-form-field class="mr-2 col-6">
+                <input type="text" matInput placeholder="City">
+            </mat-form-field>
+            <mat-form-field class="ml-2 col-6">
+                <input type="text" matInput placeholder="Postal/ZIP code">
+            </mat-form-field>
+            </div>       
+            
+            <div class="d-flex">
+                <mat-form-field class="mr-2 col-6">
+                    <input type="text" matInput placeholder="Country">
+                </mat-form-field>
+                <mat-form-field class="ml-2 col-6">
+                    <input type="text" matInput placeholder="State">
+                </mat-form-field>
+                </div>  
+
+            </form>
+             </mat-card-content>
+        </mat-card>
+    </div>
+</div>
