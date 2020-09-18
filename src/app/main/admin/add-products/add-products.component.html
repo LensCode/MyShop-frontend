@@ -95,12 +95,207 @@
               </div>
             </div>
           </div>
-          <div class="borders-bottom">&nbsp;</div>
+          <div class="borders-bottom mt-1">&nbsp;</div>
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Cost per item</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="$ 2,121.00"
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                  >Customer won't see this</small
+                >
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4 class="text-muted">Margin</h4>
+                  <span class="margin-data">-</span>
+                </div>
+                <div class="col-md-6">
+                  <h4 class="text-muted">Profit</h4>
+                  <span class="profit-data">-</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <mat-checkbox class="example-margin"
+                >Charge tax on this product</mat-checkbox
+              >
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="card-4 mt-3">
+        <mat-card>
+          <h3>Inventory</h3>
+          <div class="inventory-form-section">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="sku">SKU (Stock Keeping Unit)</label>
+                  <input type="text" class="form-control" id="sku" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="barcode">Barcode (ISBN, UPC, GTIN, etc.)</label>
+                  <input type="text" class="form-control" id="barcode" />
+                </div>
+              </div>
+            </div>
+            <div class="track">
+              <mat-checkbox
+                class="example-margin track-quantity"
+                (change)="toggle($event)"
+                id="trackContent"
+                >Track quantity</mat-checkbox
+              >
+            </div>
+            <div class="Stock">
+              <mat-checkbox class="example-margin"
+                >Continue selling when out of stock</mat-checkbox
+              >
+            </div>
+          </div>
+          <div class="track__content" *ngIf="show">
+            <div class="borders-bottom mt-1 mb-3">&nbsp;</div>
+            <div class="pt-4">
+              <h3>Quantity</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="available">Available</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="available"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="variant-card mt-3">
+        <mat-card>
+          <h3>Variants</h3>
+          <div class="variants">
+            <mat-checkbox
+              class="example-margin"
+              (change)="toggle($event)"
+              id="variantsContent"
+            >
+              This product has multiple options, like different sizes or
+              color</mat-checkbox
+            >
+          </div>
+          <div *ngIf="showVariants">
+            <div class="borders-bottom mt-1 mb-3">&nbsp;</div>
+            <div class="pt-4">
+              <h3 class="mb-0">Options</h3>
+              <div class="variant-container mt-3">
+                <div *ngFor="let variantsEle of optionArray">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1"
+                          >Option-{{ variantsEle.id }}</label
+                        >
+                        <select
+                          class="form-control"
+                          id="exampleFormControlSelect1"
+                        >
+                          <option *ngFor="let item of foods">
+                            {{ item.viewValue }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <label
+                          for="exampleFormControlSelect1"
+                          class="d-block text-right"
+                        >
+                          <a
+                            href=""
+                            (click)="removeVariantElement($event)"
+                            id="{{ variantsEle.id }}"
+                            >Remove</a
+                          >
+                        </label>
+
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="available"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="mt-0" />
+                </div>
+              </div>
+              <button mat-stroked-button (click)="addMoreVariant()">
+                Add another options
+              </button>
+            </div>
+          </div>
         </mat-card>
       </div>
     </div>
-    <div class="col-md-4">
-      <mat-card>Simple card</mat-card>
+    <div class="col-md-4 mt-3 mt-md-0">
+      <mat-card class="bg-light">
+        <h3>Organization</h3>
+        <div class="form-group">
+          <label for="productType"> Product type </label>
+
+          <input type="text" class="form-control" placeholder="e.g. Shirts" />
+        </div>
+        <div class="form-group">
+          <label for="Vendor"> Vendor </label>
+          <input type="text" class="form-control" placeholder="e.g. Nike" />
+        </div>
+        <div class="borders-bottom mt-1">&nbsp;</div>
+        <h3 class="pt-3">Collections</h3>
+        <div class="form-group d-flex search-input__container">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            class="align-self-center text-secondary"
+            >search</mat-icon
+          >
+
+          <input
+            type="text"
+            class="form-control search-input"
+            placeholder="e.g. Shirts"
+          />
+        </div>
+        <div class="borders-bottom mt-1">&nbsp;</div>
+
+        <div class="form-group pt-4">
+          <label for="Vendor"> Tags </label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Vintage, cotton, summer"
+          />
+        </div>
+      </mat-card>
     </div>
+  </div>
+  <hr />
+  <div>
+    <button mat-raised-button color="primary">Save</button>
   </div>
 </div>

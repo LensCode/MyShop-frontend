@@ -11,6 +11,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 // Importing ngprime module
 import { EditorModule } from 'primeng/editor';
@@ -30,6 +32,8 @@ import { EditorModule } from 'primeng/editor';
     MatInputModule,
     EditorModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatExpansionModule,
   ],
   exports: [
     MatButtonModule,
@@ -45,6 +49,8 @@ import { EditorModule } from 'primeng/editor';
     MatInputModule,
     EditorModule,
     MatSelectModule,
+    MatCheckboxModule,
+    MatExpansionModule,
   ],
 })
 export class MaterialModule {}
