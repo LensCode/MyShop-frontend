@@ -1,66 +1,49 @@
 
      <mat-nav-list class="sidenav_list">
-
+      <mat-list-item >
+        <a matLine routerLink="/main/admin/general">
+        <div class="d-flex">
+         <mat-icon class="material-icons-outlined gradient_icon">account_circle</mat-icon> 
+         <span class="ml-3 pt-1">Your Account</span>
+        </div>
+         </a>
+       </mat-list-item>
       <mat-list-item >
          <a matLine routerLink="/main/admin">
          <div class="d-flex">
-          <mat-icon>portrait</mat-icon> 
-          <span class="ml-3 pt-1">Admin</span>
+          <mat-icon class="material-icons-outlined gradient_icon">shopping_bag</mat-icon> 
+          <span class="ml-3 pt-1">All Products</span>
          </div>
         </a>
       </mat-list-item>
 
       <mat-list-item >
-        <a matLine routerLink="#">
+        <a matLine routerLink="/main/admin/inventory">
         <div class="d-flex">
-         <mat-icon>home</mat-icon> 
-         <span class="ml-3 pt-1">Item2</span>
+         <mat-icon class="material-icons-outlined gradient_icon" >storefront
+        </mat-icon> 
+         <span class="ml-3 pt-1">Inventory</span>
         </div>
        </a>
      </mat-list-item>
 
      <mat-list-item >
-      <a matLine routerLink="#">
-      <div class="d-flex">
-       <mat-icon>language</mat-icon> 
-       <span class="ml-3 pt-1">Item3</span>
-      </div>
-       </a>
-     </mat-list-item>
-
-     <mat-list-item >
-       <a matLine routerLink="#">
+       <a matLine routerLink="/main/admin/setting">
         <div class="d-flex">
-         <mat-icon>settings</mat-icon> 
-        <span class="ml-3 pt-1">Item4</span>
+         <mat-icon class="material-icons-outlined gradient_icon">settings</mat-icon> 
+        <span class="ml-3 pt-1">Setting</span>
         </div>
       </a>
      </mat-list-item>
 
      <mat-list-item >
-      <a matLine routerLink="#">
-      <div class="d-flex">
-      <mat-icon>verified</mat-icon> 
-      <span class="ml-3 pt-1">Item 5</span>
-      </div>
-      </a>
- </mat-list-item>
-
-  <mat-list-item >
-    <a matLine routerLink="#">
-    <div class="d-flex">
-    <mat-icon>work_outline</mat-icon> 
-     <span class="ml-3 pt-1">Item 6</span>
-    </div>
-   </a>
- </mat-list-item>
- <mat-list-item >
-  <a matLine routerLink="#">
-    <div class="d-flex">
-    <mat-icon>album</mat-icon> 
-    <span class="ml-3 pt-1">Item 7</span>
-    </div>
-   </a>
- </mat-list-item>
+      <a matLine >
+       <div class="d-flex">
+        <mat-icon class="material-icons-outlined gradient_icon">login</mat-icon> 
+       <span class="ml-3 pt-1">Logout</span>
+       </div>
+     </a>
+    </mat-list-item>
+     
 
     </mat-nav-list>

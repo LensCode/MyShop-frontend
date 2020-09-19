@@ -3,26 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: AdminComponent,
-    children: [
-      {
-        path: 'add-products',
-        loadChildren: () =>
-          import('./add-products/add-products.module').then(
-            (m) => m.AddProductsModule
-          ),
-      },
-      {
-        path: '',
-        redirectTo: 'add-products',
-        pathMatch: 'full',
-      },
-    ],
-  },
-];
+const routes: Routes = [{ path: 'admin', component: AdminComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

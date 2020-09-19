@@ -1,0 +1,27 @@
+@import '../abstract/variables';
+.header{
+    height: 3.8rem;
+    position: fixed;
+    top: 0rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0.08rem 0.1rem 0.5rem $color-grey !important;
+    z-index: 110;
+
+    .menu{
+      display: none;
+      button{outline: none;}
+    }
+    .header-container{
+        display: flex;
+        width: 100%;
+    }
+    .spacer{
+        flex: 1 1 auto;
+    }
+    mat-menu{
+       
+            outline: none;
+      
+    }
+}

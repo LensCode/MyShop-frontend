@@ -1,8 +1,6 @@
-@import "./sass/variables.scss";
-@import "./sass/sidenav.scss";
-@import "./sass/header.scss";
-@import "./sass/auth.scss";
-@import "./sass/main-content.scss";
+@import "./sass/components/sidenav";
+@import "./sass/components/header";
+@import "./sass/abstract/variables";
 
 body,
 html {
@@ -12,15 +10,24 @@ body {
   padding: 0px;
   outline: none;
   margin: 0px;
-  overflow-x: hidden;
-  font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial,
-    Lucida Grande, sans-serif;
+  font-size: 16px;
+  overflow-x: hidden !important;
+  font-family: "Amiri", serif;
+  font-family: "Long Cang", cursive;
+  background: $color-grey-light;
 }
 
 /* width */
-// ::-webkit-scrollbar {
-//   width: 8px;
-// }
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
 
 // /* Track */
 // ::-webkit-scrollbar-track {
@@ -34,7 +41,11 @@ body {
 //   border-radius: 10px;
 // }
 
-// /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: #bdbaba;
-// }
+@media (max-width: 978px) {
+  .sidenav {
+    left: -15rem;
+  }
+  .main-content {
+    margin-left: 0px;
+  }
+}

@@ -1,0 +1,14 @@
+@import '../abstract/variables';
+ .sidenav{
+        position: fixed;
+        left: 0px;
+        top: 3.8rem;
+        bottom: 0px;
+        background: $color-grey-light;
+        width: 15rem;
+        padding-top: 0.8rem;
+        overflow-y: auto;
+        z-index: 20;
+        transition: left 0.5s ease,width 0.5s ease;
+        border-right: 0.08rem solid $color-grey-medium-2 ;
+    }

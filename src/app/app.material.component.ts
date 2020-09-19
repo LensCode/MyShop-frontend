@@ -8,15 +8,18 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 // Importing ngprime module
 import { EditorModule } from 'primeng/editor';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -25,19 +28,26 @@ import { EditorModule } from 'primeng/editor';
     MatToolbarModule,
     MatBadgeModule,
     MatTabsModule,
+    MatDialogModule,
     MatListModule,
     MatSidenavModule,
     MatMenuModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
     EditorModule,
     MatSelectModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
   ],
   exports: [
     MatButtonModule,
+    MatSelectModule,
     MatCardModule,
+    MatDialogModule,
     MatIconModule,
     MatToolbarModule,
     MatBadgeModule,
@@ -51,6 +61,9 @@ import { EditorModule } from 'primeng/editor';
     MatSelectModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
   ],
 })
 export class MaterialModule {}

@@ -7,15 +7,34 @@ const routes: Routes = [
   { path: '', component: MainComponent ,
     children:[
       {
-        path:'admin',
-        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+        path:'admin',children:[
+          {
+            path:'inventory',
+            loadChildren: () => import('./admin/inventory/inventory.module').then(m => m.InventoryModule)
+          },
+          { 
+            path: 'general', 
+            loadChildren: () => import('./admin/my-account/my-account.module').then(m => m.MyAccountModule) 
+          },
+          { 
+            path: 'setting', 
+            loadChildren: () => import('./admin/setting/setting.module').then(m => m.SettingModule) 
+          },
+          {
+            path:'',
+            redirectTo:'/main/admin/inventory',
+            pathMatch:'full'
+          }
+        ]
       },
       {
         path:'',
-        redirectTo:'/main/admin',
+        redirectTo:'/main/admin/inventory',
         pathMatch:'full'
       }
     ]}
+  
+ 
 ];
 
 @NgModule({

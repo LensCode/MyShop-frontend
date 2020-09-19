@@ -1,0 +1,106 @@
+<h1 class="primary__heading">Inventory</h1>
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput  (keyup)="onFilter(input.value)" #input>
+  </mat-form-field>
+  <!-- Table start -->
+<div class="table-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                          >
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          >
+            </mat-checkbox>
+          </td>
+        </ng-container>
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="product">
+          
+          <th mat-header-cell *matHeaderCellDef>
+               <span *ngIf="selection.selected.length===0" class="table_header">Product </span>
+               <span mat-stroked-button color="primary"
+               [matMenuTriggerFor]="menu"
+               class="action_btn"
+               *ngIf="selection.selected.length!==0">
+                Actions  &#9660;
+              </span>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <span>Continue selling when out of stock</span>
+                </button>
+                <button mat-menu-item >
+                    <span>Stop selling when out of stock</span>
+                </button>
+                <button mat-menu-item>
+                  <span>Create transfer</span>
+                </button>
+                <button mat-menu-item>
+                    <span>Create transfer</span>
+                  </button>
+              </mat-menu>
+            </th>
+          <td mat-cell *matCellDef="let element">
+              <img [src]="element.product.imagePath" class="product_img">
+               {{element.product.name}}/{{element.product.category}}/{{element.product.color}} 
+            </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> 
+            <span *ngIf="selection.selected.length===0">When sold out</span>
+            <span *ngIf="selection.selected.length!==0">&nbsp;</span>
+         </th>
+          <td mat-cell *matCellDef="let element" > {{element.status}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="incoming">
+          <th mat-header-cell *matHeaderCellDef> 
+            <span *ngIf="selection.selected.length===0" >Incoming</span>
+            <span *ngIf="selection.selected.length!==0">&nbsp;</span>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.incoming}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="available">
+          <th mat-header-cell *matHeaderCellDef> 
+            <span *ngIf="selection.selected.length===0">Available</span>
+            <span *ngIf="selection.selected.length!==0">&nbsp;</span>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.available}} </td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> 
+                <span *ngIf="selection.selected.length===0">Edit Quantity Available</span>
+                <span *ngIf="selection.selected.length!==0">&nbsp;</span>
+                 </th>
+            <td mat-cell *matCellDef="let element">
+                    <div class="input-box">
+                        <input matInput type="number" class="input">   
+                        <button>save</button>
+                    </div>
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            >
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+  
