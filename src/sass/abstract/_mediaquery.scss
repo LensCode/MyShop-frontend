@@ -18,6 +18,10 @@
                 margin: 2rem 40px !important;
             }
         }
+
+        .form_field,.mat-form-field{
+                    flex-direction: column !important;
+                }
     }
 
     .main-content{

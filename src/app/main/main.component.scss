@@ -3,9 +3,8 @@
 @import '../../sass/abstract/mediaquery';
 @import '../../sass/abstract/keyframes';
 @import '../../sass/abstract/variables';
-
+*{overflow-x: hidden;}
  .main-container{
-     overflow: hidden;  
       .main-content{
         margin-top: 3.8rem;
         height: calc(100vh - 3.8rem);

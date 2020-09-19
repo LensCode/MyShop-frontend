@@ -1,5 +1,11 @@
+@import "../../../../sass/abstract/mediaquery";
 @import "../../../../sass/base/typography";
 @import "../../../../sass/abstract/variables";
+
+.row{
+    display: flex;
+    align-items: center;
+}
 
 .profile_box{
     display: flex;
@@ -41,7 +47,7 @@
 }
 @media(max-width:768px){
     .form_field,.mat-form-field{
-        flex-direction: column;
+        flex-direction: column !important;
     }
     mat-form-field, .mat-form-field{width: 100% !important;}
 

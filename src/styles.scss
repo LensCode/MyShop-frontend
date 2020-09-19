@@ -12,7 +12,7 @@ body {
   outline: none;
   margin: 0px;
   font-size: 16px;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   font-family: 'Amiri', serif;
   font-family: 'Long Cang', cursive;
   background: $color-grey-light;
