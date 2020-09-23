@@ -1,0 +1,67 @@
+@import "../../../../sass/base/typography";
+@import "../../../../sass/abstract/variables";
+@import "../../../../sass/abstract/mediaquery";
+
+.common {
+  border: 0.06rem solid $color-grey-medium;
+  border-radius: 0.3rem;
+}
+.table {
+  width: 100%;
+  margin-bottom: 0rem;
+  td {
+    padding: 1rem;
+    vertical-align: middle;
+    .product_img {
+      height: 4rem;
+      width: 4rem;
+      border: 0.06rem solid $color-grey-light;
+    }
+    .input-box {
+      @extend .common;
+      margin: 1rem 0rem;
+      padding: 0rem 0rem 0rem 0.2rem;
+      display: inline-flex;
+      align-items: center;
+      .input {
+        max-width: 4.5rem;
+        border: none;
+        outline: none;
+        padding-left: 0.5rem;
+      }
+      button {
+        border: none;
+        background: $color-primary;
+        color: $color-white;
+        padding: 0.3rem 0.5rem;
+        border-top-right-radius: 0.2rem;
+        border-bottom-right-radius: 0.2rem;
+      }
+    }
+  }
+  th {
+    padding: 1rem;
+    .action_btn {
+      @extend .common;
+      padding: 0.3rem 1rem;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+.table-container {
+  width: 100%;
+  table {
+    height: 100%;
+  }
+}
+.item-actions {
+  button {
+    letter-spacing: 1px;
+  }
+  & mat-icon {
+    font-size: 19px;
+  }
+}
