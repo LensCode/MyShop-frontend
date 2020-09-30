@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MustMatch } from '../helper';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,20 +10,20 @@ import { MustMatch } from '../helper';
 export class SignupComponent implements OnInit {
 
   isVisible = false;
-  isVisible2 = false;
   type = 'password';
   signup:FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService:AuthService
+    ) { }
 
   ngOnInit(): void {
     this.signup = this.formBuilder.group({
+      name:['',[Validators.required]],
       email:['',[Validators.email,Validators.required]],
       password:['',[Validators.required, Validators.minLength(6)]],
-      confirmPassword:['',[Validators.required]]
-    },
-    {
-      validator: MustMatch('password', 'confirmPassword')
+      phone:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     }
     );
   }
@@ -32,12 +32,11 @@ export class SignupComponent implements OnInit {
     this.isVisible = !this.isVisible;
     this.isVisible === true? this.type = 'text': this.type = 'password';
   }
-  onVisible2(){
-    this.isVisible2 = !this.isVisible2;
-    this.isVisible2 === true? this.type = 'text': this.type = 'password';
-  }
+  
  
-  onSignup(form){
+  onSignup(){
     this.submitted = true;
+    if(this.signup.invalid) return;
+    this.authService.createAdmin(this.signup.value);
   }
 }

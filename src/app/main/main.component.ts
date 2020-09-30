@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 declare var $:any;
 @Component({
   selector: 'app-main',
@@ -7,7 +8,7 @@ declare var $:any;
 })
 export class MainComponent implements OnInit {
   isLogin = false;
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
     $('.example-container').ready(function(){
@@ -22,6 +23,7 @@ export class MainComponent implements OnInit {
         $("aside").removeClass("toggle");
       });
     });
+    
    }
 
   }

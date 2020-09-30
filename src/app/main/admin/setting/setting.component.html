@@ -1,35 +1,38 @@
 <h1 class="primary__heading">General</h1>
 <!-- store details -->
+<form [formGroup]="companyInfo" autocomplete="off" (ngSubmit)="onSubmit()">
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-6">
         <h3 class="secondary__heading">Store Details</h3>
         <p class="paragraph">Myshop and your customer will use this info to contact you.</p>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-6">
         <mat-card>
             <mat-card-content>
-            <form>
+            
                 <mat-form-field class="form_field">
-                    <input type="text" matInput placeholder="Store Name">
+                    <input type="text" matInput placeholder="Store Name" formControlName="storeName">
+                    <mat-error *ngIf="submitted && companyInfo.get('storeName').hasError('required')">Store Name is required!</mat-error>
                 </mat-form-field>
                 <mat-form-field class="form_field">
-                    <input type="text" matInput placeholder="Store Contact Email">
+                    <input type="text" matInput placeholder="Store Contact Email" formControlName="email">
                     <mat-hint>We'll use this address if we need to contact you about your store.</mat-hint>
+                    <mat-error *ngIf="submitted && companyInfo.get('email').hasError('required')">Email is required!</mat-error>
                 </mat-form-field>
                 <mat-form-field class="mt-3 form_field">
-                    <mat-label>Panel color</mat-label>
-                    <mat-select >
-                      <mat-option value="red">Clothing</mat-option>
-                      <mat-option value="green">Toys</mat-option>
-                      <mat-option value="blue">Handcrafts</mat-option>
-                      <mat-option value="blue">Groceries</mat-option>
-                      <mat-option value="blue">Beauty</mat-option>
-                      <mat-option value="blue">Electronics</mat-option>
+                    <mat-label>Store Industry</mat-label>
+                    <mat-select formControlName="industry">
+                        <mat-option >Select</mat-option>
+                      <mat-option value="clothing">Clothing</mat-option>
+                      <mat-option value="toys">Toys</mat-option>
+                      <mat-option value="handcrafts">Handcrafts</mat-option>
+                      <mat-option value="groceries">Groceries</mat-option>
+                      <mat-option value="beauty">Beauty</mat-option>
+                      <mat-option value="electronics">Electronics</mat-option>
 
                     </mat-select>
+                    <mat-error *ngIf="submitted && companyInfo.get('industry').hasError('required')">Industry is required!</mat-error>
                   </mat-form-field>
-                  
-            </form>
              </mat-card-content>
         </mat-card>
     </div>
@@ -38,47 +41,53 @@
 
  <!-- store address -->
 <div class="row my-4">
-    <div class="col-lg-4">
+    <div class="col-lg-6">
         <h3 class="secondary__heading">Store Address</h3>
         <p class="paragraph">This address will appear on your invoices.</p>
      </div>
-    <div class="col-lg-8">
+    <div class="col-lg-6">
         <mat-card>
             <mat-card-content>
-            <form>
             <mat-form-field class="form_field">
-                <input type="text" matInput placeholder="Legal Name of business">
-            </mat-form-field>
-
-            <mat-form-field class="form_field">
-                <input type="text" matInput placeholder="Phone">
+                <input type="number" matInput placeholder="Phone" formControlName="phone">
+                <mat-error *ngIf="submitted && companyInfo.get('phone').hasError('required')">Phone is required!</mat-error>
+                <mat-error *ngIf="submitted && companyInfo.get('phone').hasError('pattern')">Phone number must have 10 digits!</mat-error>
             </mat-form-field>
             <mat-form-field class="form_field">
-                <input type="text" matInput placeholder="Street">
+                <input type="text" matInput placeholder="Street" formControlName="street">
+                <mat-error *ngIf="submitted && companyInfo.get('street').hasError('required')">Street is required!</mat-error>
             </mat-form-field>
             <mat-form-field class="form_field">
-                <input type="text" matInput placeholder="Apartment , Building etc (opt)">
+                <input type="text" matInput placeholder="Apartment , Building etc (opt)" formControlName="building">
             </mat-form-field>
             <div class="d-flex">
-            <mat-form-field class="mr-2 col-6">
-                <input type="text" matInput placeholder="City">
+            <mat-form-field class="mr-2 col-6 pl-0">
+                <input type="text" matInput placeholder="City" formControlName="city">
+                <mat-error *ngIf="submitted && companyInfo.get('city').hasError('required')">City is required!</mat-error>
             </mat-form-field>
             <mat-form-field class="ml-2 col-6">
-                <input type="text" matInput placeholder="Postal/ZIP code">
+                <input type="number" matInput placeholder="Postal/ZIP code" formControlName="pinCode">
+                <mat-error *ngIf="submitted && companyInfo.get('pinCode').hasError('required')">Pin code is required!</mat-error>
             </mat-form-field>
             </div>       
             
             <div class="d-flex">
-                <mat-form-field class="mr-2 col-6">
-                    <input type="text" matInput placeholder="Country">
+                <mat-form-field class="mr-2 col-6 pl-0">
+                    <input type="text" matInput placeholder="Country" formControlName="country">
+                    <mat-error *ngIf="submitted && companyInfo.get('country').hasError('required')">Country is required!</mat-error>
                 </mat-form-field>
                 <mat-form-field class="ml-2 col-6">
-                    <input type="text" matInput placeholder="State">
+                    <input type="text" matInput placeholder="State" formControlName="state">
+                    <mat-error *ngIf="submitted && companyInfo.get('state').hasError('required')">State is required!</mat-error>
                 </mat-form-field>
                 </div>  
-
-            </form>
              </mat-card-content>
         </mat-card>
     </div>
 </div>
+<div class="d-flex" style="justify-content: flex-end;">
+    <button mat-flat-button color="primary" class="outline-none" [disabled]="companyInfo.invalid">Save</button>
+</div>
+</form>
+
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

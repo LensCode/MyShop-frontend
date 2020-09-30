@@ -41,7 +41,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #bdbaba;
 }
-
+.outline-none{outline: none !important;}
 @media (max-width: 978px) {
   .sidenav {
     left: -15rem;

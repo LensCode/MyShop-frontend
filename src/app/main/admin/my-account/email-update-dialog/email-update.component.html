@@ -1,20 +1,16 @@
-<style>
-    mat-form-field{
-        min-width: 20rem;
-    }
-</style>
+
 <h2 mat-dialog-title>Change your email</h2>
 <mat-dialog-content class="mat-typography">
-  <form class="d-flex" style="flex-direction: column;">
-      <mat-form-field>
-          <input type="email" matInput placeholder="Enter your new email">
-      </mat-form-field>
-      <mat-form-field>
-        <input type="password" matInput placeholder="Enter your current password">
+ 
+   <div class="d-flex" style="flex-direction: column;">
+    <mat-form-field>
+      <input type="email" matInput placeholder="Email" [(ngModel)]="email" name="email" >
     </mat-form-field>
-  </form>
+    <mat-form-field>
+        <input type="password" matInput placeholder="Password" [(ngModel)]="password" name="password">
+    </mat-form-field>
+   <button type="button" mat-flat-button color="primary" (click)="onUpdate()">Update</button>
+   </div>
+
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Change email</button>
-</mat-dialog-actions>
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

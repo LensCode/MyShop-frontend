@@ -15,6 +15,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -32,7 +33,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatTableModule,
     MatCheckboxModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -50,7 +52,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatTableModule,
     MatCheckboxModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
 })
 export class MaterialModule {}
