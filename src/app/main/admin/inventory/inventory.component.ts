@@ -1,43 +1,54 @@
-import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Inventory } from './inventory.model';
-const TABLE_DATA = [
-  {position:1,product: {imagePath:'../../../../assets/img/images.jpg',name:'T-shirt',category:'S',color:'Red'}, status:'Countinue selling', incoming:1, available:4},
-  {position:2,product: {imagePath:'../../../../assets/img/yellow.jpg',name:'T-shirt',category:'M',color:'yellow'}, status:'Countinue selling', incoming:0, available:5},
-  {position:3,product: {imagePath:'../../../../assets/img/blue.jpg',name:'T-shirt',category:'L',color:'blue'}, status:'Countinue selling', incoming:2, available:6}
-];
+import { Router } from '@angular/router';
+import { ProductService } from '../sharedServices/product.service';
+
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.scss']
 })
 export class InventoryComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'product', 'status', 'incoming', 'available','edit'];
-  dataSource = new MatTableDataSource<Inventory>(TABLE_DATA);
-  selection = new SelectionModel<Inventory>(true, []);
-  constructor() { }
+  products = [];
+  isLoading = false;
+  constructor(
+    private productService:ProductService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
+    this.productService.getProducts();
+    this.productService.getAllProduct().subscribe(res=>{
+      this.isLoading = false;
+      this.products = res;
+    });
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    return this.selection.selected.length === this.dataSource.data.length;
+ 
+  onDelete(id){
+      this.productService.deleteProduct(id).subscribe(res=>{
+      this.productService.getProducts();
+    })
+
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-        this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));     
-  }
-
-  onSelected(){
-    console.log(this.selection.selected);
+  onEdit(id){
+      this.router.navigate(['/main','admin','edit',id]);
   }
  
+  onUpdateQuantity(id, quantity){
+     if(!quantity) return;
+     this.isLoading = false;
+     this.productService.updateQuantity(id,quantity);
+
+  }
   onFilter(filterString){
-    console.log(filterString);
+    this.isLoading = true;
+    this.productService.onSearch(filterString);
+  }
+
+  onKeyup(value){
+    if(!value)this.isLoading = true;
+    if(value==="" || value === undefined)this.productService.getProducts();
   }
 }

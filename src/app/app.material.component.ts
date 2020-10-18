@@ -16,6 +16,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatExpansionModule } from '@angular/material/expansion';
+// Importing ngprime module
+import { EditorModule } from 'primeng/editor';
+
 @NgModule({
   imports: [
     MatButtonModule,
@@ -31,6 +35,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
+    EditorModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatExpansionModule,
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,
@@ -50,6 +58,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
+    EditorModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatExpansionModule,
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,

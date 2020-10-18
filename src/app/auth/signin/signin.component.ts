@@ -12,6 +12,7 @@ export class SigninComponent implements OnInit {
   type = 'password';
   loginForm:FormGroup;
   submitted = false;
+  isLoading = false;
   constructor(
     private fb:FormBuilder,
     private authService:AuthService
@@ -22,6 +23,10 @@ export class SigninComponent implements OnInit {
       email:['',[Validators.email,Validators.required]],
       password:['',[Validators.required, Validators.minLength(6)]]
     });
+
+    this.authService.isError.subscribe(isError=>{
+      this.isLoading = false;
+    });
   }
 
   onVisible(){
@@ -29,9 +34,10 @@ export class SigninComponent implements OnInit {
     this.isVisible === true? this.type = 'text': this.type = 'password';
   }
 
-  onLogin(form){
+  onLogin(){
     this.submitted = true;
     if(this.loginForm.invalid)return;
+    this.isLoading = true;
     this.authService.login(this.loginForm.value);
   }
 }

@@ -1,0 +1,11 @@
+@import "../../../../sass/base/typography";
+@import "../../../../sass/abstract/variables";
+@import "../../../../sass/abstract/mediaquery";
+@import "../../../../sass/components/spinner";
+
+
+.table{
+    td{
+        vertical-align: middle;
+    }
+}

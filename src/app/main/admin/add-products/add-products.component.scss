@@ -1,0 +1,21 @@
+@import "../../../../sass/abstract/variables";
+@import "../../../../sass/base/typography";
+@import "../../../../sass/components/spinner";
+.form_field{
+  width: 100%;
+}
+
+.previewImg{
+  position: relative !important;
+  width: 150px;
+  height: 150px;
+  .img_delete{
+    position: absolute;
+    cursor: pointer;
+    right:0.1rem;
+    top: 0.4rem;
+    font-size: 1rem;
+    color: $color-white;
+    text-shadow: 1px 1px 5px $color-black !important;
+  }
+}

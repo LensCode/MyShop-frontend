@@ -2,21 +2,20 @@
 @import "./sass/components/header";
 @import "./sass/abstract/variables";
 
-
 body,
 html {
   height: 100%;
 }
 body {
   padding: 0px;
-  outline: none;
   margin: 0px;
   font-size: 16px;
   overflow-x: hidden !important;
-  font-family: 'Amiri', serif;
-  font-family: 'Long Cang', cursive;
+  font-family: "Amiri", serif;
+  font-family: "Long Cang", cursive;
   background: $color-grey-light;
- 
+  // center align of the spinner
+
 }
 
 /* width */
@@ -31,9 +30,9 @@ body {
   border-radius: 10px;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(161, 159, 159);
+// /* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
@@ -51,4 +50,8 @@ body {
   }
 }
 
+// remove outline of the buttons 
+button{
+  outline: none !important;
+}
 

@@ -1,23 +1,21 @@
 <div class="main-container">
-    <mat-toolbar color="primary" class="header">
-       
-  
-         <div class="menu">
-           <button mat-icon-button ><mat-icon>menu</mat-icon></button>
-         </div>
-         <span class="bran_name" >MyShop</span>
-         <div class="spacer"></div>
-         <ul>
-           <li>
-             <a routerLink="/auth/signin">Login</a>
-           </li>
-         </ul>
-     </mat-toolbar>
-     
- <aside class="sidenav">
-   <app-sidenav></app-sidenav>
- </aside>
- <div class="main-content">
-   <router-outlet></router-outlet>
- </div>
+  <mat-toolbar color="primary" class="header">
+    <div class="menu">
+      <button mat-icon-button><mat-icon>menu</mat-icon></button>
+    </div>
+    <span class="bran_name">MyShop</span>
+    <div class="spacer"></div>
+    <ul>
+      <li>
+        <a routerLink="/auth/signin">Login</a>
+      </li>
+    </ul>
+  </mat-toolbar>
+
+  <aside class="sidenav">
+    <app-sidenav></app-sidenav>
+  </aside>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

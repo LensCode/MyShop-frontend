@@ -1,6 +1,7 @@
 @import "../../../../sass/base/typography";
 @import "../../../../sass/abstract/variables";
 @import "../../../../sass/abstract/mediaquery";
+@import "../../../../sass/components/spinner";
 
 .common{
     border: 0.06rem solid $color-grey-medium;
@@ -40,26 +41,12 @@
            
         }
     }
-    th{
-        padding: 1rem ;
-        .action_btn{
-            @extend .common;
-            padding: 0.3rem 1rem;
-        }
-
-    }
     
     
 }
-
 
 mat-form-field{
     width: 100%;
 }
-.table-container {
-    width: 100%;
-    table{
-       height: 100%;
-   }
-  }
+
   

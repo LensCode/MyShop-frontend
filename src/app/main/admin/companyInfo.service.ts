@@ -46,4 +46,5 @@ export class CompanyService {
                   },
                   err=>{this.isLoading.next(false)});
     }
+ 
 }

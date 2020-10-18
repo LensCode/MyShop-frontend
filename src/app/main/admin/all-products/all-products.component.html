@@ -1,0 +1,42 @@
+
+<div>
+  <div class="d-flex">
+    <div style="flex: 1 1 auto;">
+      <h1 class="primary__heading">All Products</h1>
+    </div>
+    <div>
+      <button mat-flat-button color="primary" (click)="onAddProduct()">
+        <mat-icon>add</mat-icon>
+        <span>Add Product</span>
+      </button>
+    </div>
+    
+  </div>
+  <mat-card class="table-responsive-sm">
+
+    <table class="table table-borderless">
+     <thead>
+      <tr>
+        <th>Product</th>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+     </thead>
+      <tbody>
+        <tr *ngFor="let product of products" class="border-top">
+          <td>
+            <img [src]="product.images[0]" alt="productImage" height="100px">
+          </td>
+          <td >{{product.title}}</td>
+          <td>{{product.quantity}} </td>
+          <td nowrap >
+            <mat-icon class="mr-2 material-icons-outlined " color="primary" style="cursor: pointer;" (click)="onEdit(product._id)">edit</mat-icon>
+            <mat-icon class="material-icons-outlined " color="warn" style="cursor: pointer;" (click)="onDelete(product._id)">delete</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+</div>
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

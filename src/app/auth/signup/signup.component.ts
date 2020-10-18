@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   type = 'password';
   signup:FormGroup;
   submitted = false;
+  isLoading = false;
   constructor(
     private formBuilder: FormBuilder,
     private authService:AuthService
@@ -26,6 +27,10 @@ export class SignupComponent implements OnInit {
       phone:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]]
     }
     );
+
+    this.authService.isError.subscribe(isError=>{
+      this.isLoading = false;
+    });
   }
 
   onVisible(){
@@ -37,6 +42,7 @@ export class SignupComponent implements OnInit {
   onSignup(){
     this.submitted = true;
     if(this.signup.invalid) return;
+    this.isLoading = true;
     this.authService.createAdmin(this.signup.value);
   }
 }

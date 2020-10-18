@@ -28,6 +28,7 @@ export class AuthService {
      this.http.post<{token:string,expiresIn:number,id:string}>(`${this.url}/admin/signup`,form).subscribe(res=>{
       this.token = res.token
       if(this.token){
+        this.adminId = res.id;
        const now = new Date();
        const expiresIn = new Date(now.getTime() + (res.expiresIn*1000));
        this.saveAuthInfo(this.token,res.id,expiresIn.toISOString());
@@ -42,6 +43,7 @@ export class AuthService {
     this.http.post<{token:string,expiresIn:number,id:string}>(`${this.url}/admin/login`,form).subscribe(res=>{
       this.token = res.token
      if(this.token){
+      this.adminId = res.id;
       const now = new Date();
       const expiresIn = new Date(now.getTime() + (res.expiresIn*1000));
       this.saveAuthInfo(this.token,res.id,expiresIn.toISOString());
