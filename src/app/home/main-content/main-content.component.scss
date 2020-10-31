@@ -1,0 +1,30 @@
+@import "../../../sass/base/typography";
+@import "../../../sass/abstract/variables";
+.brand-header{
+    img{
+        width: 100%;
+    }
+}
+
+.image{
+    height: 280px;
+    width: 100%;
+}
+::ng-deep .p-rating .p-rating-icon.pi-star{
+    color: $color-yellow-dark ;
+    
+}
+
+mat-card{
+    margin-bottom: 15px;
+}
+
+.price{
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: $color-red-dark;
+}
+
+.title{
+    color: $color-primary;
+}
