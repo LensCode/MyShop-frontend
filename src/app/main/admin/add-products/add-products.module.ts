@@ -4,13 +4,19 @@ import { CommonModule } from '@angular/common';
 import { AddProductsRoutingModule } from './add-products-routing.module';
 import { AddProductsComponent } from './add-products.component';
 import { MaterialModule } from 'src/app/app.material.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // declaring quill
 declare var Quill: any;
 
 @NgModule({
   declarations: [AddProductsComponent],
-  imports: [CommonModule, AddProductsRoutingModule, MaterialModule],
+  imports: [
+            CommonModule,
+            AddProductsRoutingModule, 
+            MaterialModule,
+            ReactiveFormsModule
+          ],
 })
 export class AddProductsModule {
   constructor() {

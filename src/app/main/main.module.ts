@@ -7,7 +7,7 @@ import { MaterialModule } from '../app.material.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [MainComponent, SidenavComponent],
+  declarations: [MainComponent,SidenavComponent],
   imports: [CommonModule, MainRoutingModule, MaterialModule],
 })
 export class MainModule {}

@@ -1,301 +1,201 @@
 <div class="container">
-  <h1>Add product</h1>
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card1">
-        <mat-card>
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-                placeholder="t-shirt"
-              />
-            </div>
-            <div class="form-group mb-0">
-              <label for="exampleFormControlTextarea1">Description</label>
-              <p-editor
-                formControlName="description"
-                [style]="{ height: '150px' }"
-              >
-              </p-editor>
-              <!-- <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea> -->
-            </div>
-          </form>
-        </mat-card>
-      </div>
-      <div class="card2 mt-4">
-        <mat-card>
-          <div
-            class="media-section d-flex justify-content-between align-items-baseline"
-          >
-            <h3>Media</h3>
-            <div>
-              <button mat-button [matMenuTriggerFor]="belowMenu">
-                <a href="" (click)="foo($event)">Add and url</a>
+  <h1 class="primary__heading">Add product</h1>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-8">
+       <mat-card>
 
-                <mat-icon aria-hidden="false" aria-label="Example home icon"
-                  >arrow_drop_down</mat-icon
-                >
-              </button>
-              <mat-menu #belowMenu="matMenu" yPosition="below">
-                <button mat-menu-item class="menu1">Item 1</button>
-                <button mat-menu-item class="menu2">Item 2</button>
-              </mat-menu>
+        <mat-form-field class="form_field" appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="e.g. T-shirt" formControlName="title">
+          <mat-error 
+          *ngIf="submitted && productForm.get('title').hasError('required')"
+          >Title is required !</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form_field" appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="4"  formControlName="description"></textarea>
+          <mat-error 
+          *ngIf="submitted && productForm.get('description').hasError('required')"
+          >Description is required !</mat-error>
+        </mat-form-field>
+
+       </mat-card>
+        
+       <mat-card class="my-3">
+         <h3>Media</h3>
+         <div class="product_imgs">
+           <img src="../../../../assets/img/default_img.png" alt="default_igm" height="200px" width="100%" *ngIf="imgPreview.length===0">
+  
+           <div *ngIf="imgPreview && imgPreview.length!==0">
+            <div  class="d-flex">
+              <div class="previewImg" *ngFor="let img of imgPreview; let i=index">
+                <img [src]="img" alt="default_igm" height="100%" width="100%" >
+                <mat-icon class="img_delete" (click)="onDeleteImg(i)">highlight_off</mat-icon>
+              </div>
             </div>
+           </div>
+         </div>
+      
+        <div class="d-flex mt-3">
+          <div style="flex: 1 1 auto;">
+            <strong>NOTE:</strong>
+            <span>You can select maximum 3 images !</span>
           </div>
-          <div class="file-upload-section">
-            <input type="file" />
-            <mat-icon
-              aria-hidden="false"
-              class="uploads"
-              aria-label="Example home icon"
-              >backup</mat-icon
-            >
-            <button mat-raised-button class="bg-light text-secondary">
-              Add file
+          <div>
+            <button mat-flat-button color="primary" 
+            (click)="productImg.click()"
+             [disabled]="imgPreview.length>=3"
+             type="button">
+              <mat-icon>add_photo_alternate</mat-icon>
+              Add Product
             </button>
-            <p class="text-muted">Or Drop file to uploads</p>
           </div>
-        </mat-card>
-      </div>
-      <!-- card3 -->
-      <div class="card3 mt-3">
-        <mat-card>
-          <h3>Pricing</h3>
-          <div class="pricing-form-section">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleFormControlInput1">Price</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="$ 0.0"
-                  />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleFormControlInput1">Compare at price</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="$ 0.00"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
-          <div class="borders-bottom mt-1">&nbsp;</div>
-          <div class="row mt-4">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Cost per item</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="$ 2,121.00"
-                />
-                <small id="emailHelp" class="form-text text-muted"
-                  >Customer won't see this</small
-                >
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-6">
-                  <h4 class="text-muted">Margin</h4>
-                  <span class="margin-data">-</span>
-                </div>
-                <div class="col-md-6">
-                  <h4 class="text-muted">Profit</h4>
-                  <span class="profit-data">-</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <mat-checkbox class="example-margin"
-                >Charge tax on this product</mat-checkbox
-              >
-            </div>
-          </div>
-        </mat-card>
-      </div>
-      <div class="card-4 mt-3">
-        <mat-card>
-          <h3>Inventory</h3>
-          <div class="inventory-form-section">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="sku">SKU (Stock Keeping Unit)</label>
-                  <input type="text" class="form-control" id="sku" />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="barcode">Barcode (ISBN, UPC, GTIN, etc.)</label>
-                  <input type="text" class="form-control" id="barcode" />
-                </div>
-              </div>
-            </div>
-            <div class="track">
-              <mat-checkbox
-                class="example-margin track-quantity"
-                (change)="toggle($event)"
-                id="trackContent"
-                >Track quantity</mat-checkbox
-              >
-            </div>
-            <div class="Stock">
-              <mat-checkbox class="example-margin"
-                >Continue selling when out of stock</mat-checkbox
-              >
-            </div>
-          </div>
-          <div class="track__content" *ngIf="show">
-            <div class="borders-bottom mt-1 mb-3">&nbsp;</div>
-            <div class="pt-4">
-              <h3>Quantity</h3>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="available">Available</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="available"
-                      value="0"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </mat-card>
-      </div>
-      <div class="variant-card mt-3">
-        <mat-card>
-          <h3>Variants</h3>
-          <div class="variants">
-            <mat-checkbox
-              class="example-margin"
-              (change)="toggle($event)"
-              id="variantsContent"
-            >
-              This product has multiple options, like different sizes or
-              color</mat-checkbox
-            >
-          </div>
-          <div *ngIf="showVariants">
-            <div class="borders-bottom mt-1 mb-3">&nbsp;</div>
-            <div class="pt-4">
-              <h3 class="mb-0">Options</h3>
-              <div class="variant-container mt-3">
-                <div *ngFor="let variantsEle of optionArray">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1"
-                          >Option-{{ variantsEle.id }}</label
-                        >
-                        <select
-                          class="form-control"
-                          id="exampleFormControlSelect1"
-                        >
-                          <option *ngFor="let item of foods">
-                            {{ item.viewValue }}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="form-group">
-                        <label
-                          for="exampleFormControlSelect1"
-                          class="d-block text-right"
-                        >
-                          <a
-                            href=""
-                            (click)="removeVariantElement($event)"
-                            id="{{ variantsEle.id }}"
-                            >Remove</a
-                          >
-                        </label>
 
-                        <input
-                          type="number"
-                          class="form-control"
-                          id="available"
-                          value="0"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <hr class="mt-0" />
-                </div>
+       <input type="file" style="display: none;" (change)="onSelect($event)" #productImg >
+       <mat-error 
+       *ngIf="productForm.get('images').hasError('maxLength')"
+       >Max images is 4!
+     </mat-error>
+     <mat-error 
+       *ngIf="submitted && productForm.get('images').hasError('required')"
+       >Image is  required !
+     </mat-error>
+       </mat-card>
+        
+        <!-- card3 -->
+     <mat-card>
+       <h3>Pricing</h3>
+       <div class="row">
+         <div class="col-lg-6">
+          <mat-form-field class="form_field" appearance="outline">
+            <mat-label>MRP Price</mat-label>
+            <input matInput placeholder="Rs.0.00" type="number"  formControlName="mrp">
+            <mat-error 
+          *ngIf="submitted && productForm.get('mrp').hasError('required')"
+          >MRP is required !</mat-error>
+          </mat-form-field>
+         </div>
+         <div class="col-lg-6">
+          <mat-form-field class="form_field" appearance="outline">
+            <mat-label>Selling Price</mat-label>
+            <input matInput placeholder="Rs.0.00" type="number"  formControlName="price">
+            <mat-error 
+          *ngIf="submitted && productForm.get('price').hasError('required')"
+          >Price is required !</mat-error>
+          </mat-form-field>
+         </div>
+       </div>
+  
+       <div class="row">
+        <div class="col-lg-6">
+          <mat-form-field class="form_field" appearance="outline">
+            <mat-label>Shipping Charge</mat-label>
+            <input matInput placeholder="Rs.0.00" type="number"  formControlName="shippingCharge">
+            <mat-error 
+            *ngIf="submitted && productForm.get('shippingCharge').hasError('required')"
+            >Shipping price is required !</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-form-field class="form_field" appearance="outline">
+            <mat-label>Tax per Item</mat-label>
+            <input matInput placeholder="Rs.0.00" type="number"  formControlName="tax">
+          </mat-form-field>
+        </div>
+      </div>
+  
+     </mat-card>
+  
+        <div class="variant-card mt-3">
+          <mat-card>
+            <h3>Quantity</h3>
+            <div class="row">
+              <div class="col-lg-4">
+                <mat-form-field class="form_field" appearance="outline">
+                  <mat-label>Available</mat-label>
+                  <input matInput placeholder="Rs.0.00" type="number"  formControlName="quantity">
+                  <mat-error 
+                  *ngIf="submitted && productForm.get('quantity').hasError('required')"
+                  >Quantity is required !
+                </mat-error>
+                </mat-form-field>
               </div>
-              <button mat-stroked-button (click)="addMoreVariant()">
-                Add another options
+              <div class="col-lg-8"></div>
+            </div>
+          
+            <h3>Variants</h3>
+             <div class="row">
+               <div class="col-lg-4" formArrayName="propertyName">
+                <mat-form-field
+                class="form_field" 
+                appearance="outline"
+                *ngFor="let name of productForm.get('propertyName')['controls']; let i=index">
+                  <input matInput placeholder="e.g. Color,Size etc." type="text" [formControlName]="i">
+                </mat-form-field>
+               </div>
+               
+               <div class="col-lg-8" formArrayName="valueName">
+               <div *ngFor="let value of productForm.get('valueName')['controls']; let i=index"
+               style="flex: 1 1 auto;flex-direction: row;align-items: center; " 
+               class="d-flex">
+                <mat-form-field
+                class="form_field "
+                appearance="outline"
+                >
+                  <input matInput placeholder="e.g. Red,M etc." type="text" [formControlName]="i" >
+                </mat-form-field>
+                <div class="ml-2 mb-3">
+                  <button mat-mini-fab (click)="OnRemoveVariants(i)" type="button" >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+               </div>
+               </div>
+              
+             </div>
+             <div class="d-flex mt-2" style="justify-content: flex-end;">
+              <button mat-flat-button color="primary" class="ml-3" (click)="onAddVariants()" type="button">
+                <mat-icon>add</mat-icon> Add
               </button>
             </div>
-          </div>
+           
+          </mat-card>
+        </div>
+      </div>
+  
+  
+  
+      <div class="col-md-4 mt-3 mt-md-0">
+        <mat-card>
+          <h3>Organization</h3>
+          <mat-form-field class="form_field" appearance="outline">
+            <mat-label>Vendor</mat-label>
+            <input matInput placeholder="e.g. Nike" type="text" formControlName="vendor">
+            <mat-error 
+                  *ngIf="submitted && productForm.get('quantity').hasError('required')"
+                  >Quantity is required !
+                </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form_field" appearance="outline">
+            <mat-label>Collections</mat-label>
+            <input matInput placeholder="e.g. Shirt" type="text" formControlName="collections">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="form_field" appearance="outline">
+            <mat-label>Tags</mat-label>
+            <input matInput placeholder="e.g. Vintage,Cotton,Summer" type="text" formControlName="tags">
+          </mat-form-field>
         </mat-card>
       </div>
     </div>
-    <div class="col-md-4 mt-3 mt-md-0">
-      <mat-card>
-        <h3>Organization</h3>
-        <div class="form-group">
-          <label for="productType"> Product type </label>
-
-          <input type="text" class="form-control" placeholder="e.g. Shirts" />
-        </div>
-        <div class="form-group">
-          <label for="Vendor"> Vendor </label>
-          <input type="text" class="form-control" placeholder="e.g. Nike" />
-        </div>
-        <div class="borders-bottom mt-1">&nbsp;</div>
-        <h3 class="pt-3">Collections</h3>
-        <div class="form-group d-flex search-input__container">
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Example home icon"
-            class="align-self-center text-secondary"
-            >search</mat-icon
-          >
-
-          <input
-            type="text"
-            class="form-control search-input"
-            placeholder="e.g. Shirts"
-          />
-        </div>
-        <div class="borders-bottom mt-1">&nbsp;</div>
-
-        <div class="form-group pt-4">
-          <label for="Vendor"> Tags </label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Vintage, cotton, summer"
-          />
-        </div>
-      </mat-card>
+    <div class="mt-3">
+      <button mat-raised-button color="primary" type="submit" >Save</button>
     </div>
-  </div>
-  <hr />
-  <div>
-    <button mat-raised-button color="primary">Save</button>
-  </div>
+  </form>
+
 </div>
+
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

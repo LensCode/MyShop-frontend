@@ -38,16 +38,17 @@
           >settings</mat-icon
         >
         <span class="ml-3 pt-1">Setting</span>
-      </div>
-    </a>
-  </mat-list-item>
+        </div>
+      </a>
+     </mat-list-item>
 
-  <mat-list-item>
-    <a matLine>
-      <div class="d-flex">
-        <mat-icon class="material-icons-outlined gradient_icon">login</mat-icon>
-        <span class="ml-3 pt-1">Logout</span>
-      </div>
-    </a>
-  </mat-list-item>
+     <mat-list-item (click)="onLogout()" >
+      <a matLine >
+       <div class="d-flex">
+        <mat-icon class="material-icons-outlined gradient_icon">login</mat-icon> 
+       <span class="ml-3 pt-1">Logout</span>
+       </div>
+     </a>
+    </mat-list-item>
+  
 </mat-nav-list>

@@ -1,82 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource } from '@angular/material/table';
-import { Inventory } from './all-products.model';
-const TABLE_DATA = [
-  {
-    position: 1,
-    product: {
-      imagePath: '../../../../assets/img/images.jpg',
-      name: 'T-shirt',
-      category: 'S',
-      color: 'Red',
-    },
-    status: 'Countinue selling',
-    incoming: 1,
-    available: 4,
-  },
-  {
-    position: 2,
-    product: {
-      imagePath: '../../../../assets/img/yellow.jpg',
-      name: 'T-shirt',
-      category: 'M',
-      color: 'yellow',
-    },
-    status: 'Countinue selling',
-    incoming: 0,
-    available: 5,
-  },
-  {
-    position: 3,
-    product: {
-      imagePath: '../../../../assets/img/blue.jpg',
-      name: 'T-shirt',
-      category: 'L',
-      color: 'blue',
-    },
-    status: 'Countinue selling',
-    incoming: 2,
-    available: 6,
-  },
-];
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ProductService } from '../sharedServices/product.service';
+
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
   styleUrls: ['./all-products.component.scss'],
 })
-export class AllProductsComponent implements OnInit {
-  displayedColumns: string[] = [
-    'select',
-    'product',
-    'status',
-    'incoming',
-    'available',
-    'edit',
-  ];
-  dataSource = new MatTableDataSource<Inventory>(TABLE_DATA);
-  selection = new SelectionModel<Inventory>(true, []);
-  constructor() {}
+export class AllProductsComponent implements OnInit ,OnDestroy{
+  products :any = [];
+  isLoading = false;
+  errSubs:Subscription;
+  productSubs:Subscription;
+  constructor(
+    private productService:ProductService,
+    private router:Router
+  ) {}
 
-  ngOnInit(): void {}
-
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    return this.selection.selected.length === this.dataSource.data.length;
+  ngOnInit(): void {
+    this.isLoading = true;
+    this.productService.getProducts();
+    this.productSubs = this.productService.getAllProduct().subscribe(products=>{
+      this.isLoading = false;
+      this.products = products;
+    });
+    this.errSubs = this.productService.isError.subscribe(isError=>{
+      this.isLoading = false
+    })
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected()
-      ? this.selection.clear()
-      : this.dataSource.data.forEach((row) => this.selection.select(row));
+  onAddProduct(){
+    this.router.navigate(['/main','admin','add-product']);
   }
 
-  onSelected() {
-    console.log(this.selection.selected);
+  onDelete(id){
+    this.productService.deleteProduct(id).subscribe(res=>{
+      this.productService.getProducts();
+    })
+
   }
 
-  onFilter(filterString) {
-    console.log(filterString);
+  onEdit(id){
+      this.router.navigate(['/main','admin','edit',id]);
+  }
+
+  ngOnDestroy(){
+    this.errSubs.unsubscribe();
+    this.productSubs.unsubscribe();
   }
 }

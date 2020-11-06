@@ -5,43 +5,52 @@
           <img src="../../../assets/img/login.svg" alt="login" class="img">
         </div>
         <div class="form_container">
-            <form [formGroup]="signup" (ngSubmit)="onSignup(signup)" class="d-flex">
-                <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
+            <form [formGroup]="signup" (ngSubmit)="onSignup()" class="d-flex">
+             
+                    <mat-form-field appearance="outline" class="form-field">
+                        <mat-label> Name *</mat-label>
+                        <input type="text" matInput formControlName="name">
+                        <mat-icon matSuffix>person_outline</mat-icon>
+                        <mat-error 
+                        *ngIf="submitted && signup.get('name').hasError('required')" 
+                        class="text-danger">Name is required!</mat-error>
+                    </mat-form-field>
+            
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Email *</mat-label>
                     <input matInput type="email" formControlName="email">
-                    <mat-icon matSuffix>email</mat-icon>
-                        <mat-hint 
+                    <mat-icon matSuffix class="material-icons-outlined">email</mat-icon>
+                        <mat-error 
                         *ngIf="submitted && signup.get('email').hasError('required')" 
-                        class="text-danger">Email is required!</mat-hint>
-                        <mat-hint 
+                        class="text-danger">Email is required!</mat-error >
+                        <mat-error 
                         *ngIf="submitted && signup.get('email').hasError('email')"
-                         class="text-danger">Invalid email!</mat-hint>
+                         class="text-danger">Invalid email!</mat-error >
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline">
-                    <mat-label>Password</mat-label>
+                  <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Password *</mat-label>
                     <input matInput [type]="type" formControlName="password">
-                    <mat-icon matSuffix (click)="onVisible()" *ngIf="!isVisible" class="visible_icon">visibility_off</mat-icon>
-                    <mat-icon matSuffix (click)="onVisible()" *ngIf="isVisible" class="visible_icon">visibility</mat-icon>
-                    <mat-hint 
+                    <mat-icon matSuffix (click)="onVisible()" *ngIf="!isVisible" class="visible_icon material-icons-outlined">visibility_off</mat-icon>
+                    <mat-icon matSuffix (click)="onVisible()" *ngIf="isVisible" class="visible_icon material-icons-outlined">visibility</mat-icon>
+                    <mat-error 
                     *ngIf="submitted && signup.get('password').hasError('required')" 
-                    class="text-danger">Password is required!</mat-hint>
-                    <mat-hint 
+                    class="text-danger">Password is required!</mat-error>
+                    <mat-error 
                     *ngIf="submitted && signup.get('password').hasError('minLength')"
-                     class="text-danger">Password must have 6 characters!</mat-hint>
+                     class="text-danger">Password must have 6 characters!</mat-error>
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline">
-                    <mat-label>Confirm Password</mat-label>
-                    <input matInput [type]="type" formControlName="confirmPassword">
-                    <mat-icon matSuffix (click)="onVisible2()" *ngIf="!isVisible2" class="visible_icon">visibility_off</mat-icon>
-                    <mat-icon matSuffix (click)="onVisible2()" *ngIf="isVisible2" class="visible_icon">visibility</mat-icon>
-                    <mat-hint 
-                    *ngIf="submitted && signup.get('confirmPassword').hasError('required')" 
-                    class="text-danger">Password is required!</mat-hint>
-                    <mat-hint 
-                    *ngIf="submitted && signup.get('confirmPassword').hasError('mustMatch')"
-                     class="text-danger">Confirm password is wrong!</mat-hint>
+                  <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Phone *</mat-label>
+                    <input matInput [type]="type" formControlName="phone">
+                    <mat-icon matSuffix class="material-icons-outlined">phone</mat-icon>
+                    <mat-error 
+                    *ngIf="submitted && signup.get('phone').hasError('required')" 
+                    class="text-danger">Phone number is required!</mat-error>
+                    <mat-error 
+                    *ngIf="submitted && signup.get('phone').hasError('pattern')"
+                     class="text-danger">Phone number must have 10 Digits!</mat-error>
                   </mat-form-field>
                   <button
                    type="submit" 
@@ -50,9 +59,9 @@
                    class="btn_signup">SignUp</button>
             </form>
             <div class="my-2">OR</div>
-            <button mat-raised-button  class="btn_signup" routerLink="/auth/signin">Existing User? Login</button>
+            <button mat-raised-button  class="btn_signup" routerLink="/auth/login">Existing User? Login</button>
         </div>
     </div>
       
 </div>
-
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

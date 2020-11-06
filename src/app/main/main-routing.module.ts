@@ -33,7 +33,14 @@ const routes: Routes = [
               ),
           },
           {
-            path: 'add-products',
+            path: 'add-product',
+            loadChildren: () =>
+              import('./admin/add-products/add-products.module').then(
+                (m) => m.AddProductsModule
+              ),
+          },
+          {
+            path: 'edit/:id',
             loadChildren: () =>
               import('./admin/add-products/add-products.module').then(
                 (m) => m.AddProductsModule
@@ -59,7 +66,7 @@ const routes: Routes = [
         pathMatch: 'full',
       },
     ],
-  },
+  }
 ];
 
 @NgModule({
