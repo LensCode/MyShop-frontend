@@ -8,17 +8,21 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatSelectModule} from '@angular/material/select';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
 // Importing ngprime module
 import { EditorModule } from 'primeng/editor';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { GalleriaModule } from 'primeng/galleria';
+import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
   imports: [
@@ -42,7 +46,11 @@ import { EditorModule } from 'primeng/editor';
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    CarouselModule,
+    ButtonModule,
+    GalleriaModule,
+    DataViewModule
   ],
   exports: [
     MatButtonModule,
@@ -65,7 +73,11 @@ import { EditorModule } from 'primeng/editor';
     MatTableModule,
     MatCheckboxModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    CarouselModule,
+    ButtonModule,
+    GalleriaModule,
+    DataViewModule
   ],
 })
-export class MaterialModule {}
+export class MaterialModule { }

@@ -1,0 +1,86 @@
+{
+  "products": [
+    {
+      "image": "mobile1.jpg",
+      "name": "Moto G",
+      "inventoryStatus": "Instock",
+      "price": 34
+    },
+    {
+      "image": "mobile2.jpg",
+      "name": "Moto G",
+      "inventoryStatus": "Lowstock",
+      "price": 34
+    },
+    {
+      "image": "mobile4.jpg",
+      "name": "Moto G",
+      "inventoryStatus": "Lowstock",
+      "price": 34
+    },
+    {
+      "image": "mobile5.jpg",
+      "name": "Moto G",
+      "inventoryStatus": "Lowstock",
+      "price": 34
+    },
+    {
+      "image": "blue.jpg",
+      "name": "Moto G",
+      "inventoryStatus": "Lowstock",
+      "price": 34
+    }
+  ],
+  "images": [
+    {
+      "previewImageSrc": "pexels-aleksey-kuprikov-3493777.jpg",
+      "thumbnailImageSrc": "pexels-aleksey-kuprikov-3493777.jpg"
+    },
+    {
+      "previewImageSrc": "pexels-michael-block-3225517.jpg",
+      "thumbnailImageSrc": "pexels-michael-block-3225517.jpg"
+    },
+    {
+      "previewImageSrc": "pexels-ruvim-miksanskiy-1438761.jpg",
+      "thumbnailImageSrc": "pexels-ruvim-miksanskiy-1438761.jpg"
+    }
+  ],
+  "moreProducts": [
+    {
+      "image": "blue.jpg",
+      "name": "Blue Tshirt",
+      "description": "Product description",
+      "category": "Fashion",
+      "rating": 3,
+      "price": 34,
+      "inventoryStatus": "Instock"
+    },
+    {
+      "image": "blue.jpg",
+      "name": "Blue Tshirt",
+      "description": "Product description",
+      "category": "Fashion",
+      "rating": 3,
+      "price": 34,
+      "inventoryStatus": "Instock"
+    },
+    {
+      "image": "blue.jpg",
+      "name": "Blue Tshirt",
+      "description": "Product description",
+      "category": "Fashion",
+      "rating": 3,
+      "price": 34,
+      "inventoryStatus": "Instock"
+    },
+    {
+      "image": "blue.jpg",
+      "name": "Blue Tshirt",
+      "description": "Product description",
+      "category": "Fashion",
+      "rating": 3,
+      "price": 34,
+      "inventoryStatus": "Instock"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 @import "./sass/components/sidenav";
 @import "./sass/components/header";
 @import "./sass/abstract/variables";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import"../node_modules/primeng/resources/themes/saga-blue/theme.css";
+ @import  "../node_modules/primeng/resources/primeng.min.css";
 
 body,
 html {
@@ -50,7 +53,7 @@ body {
   }
 }
 
-// remove outline of the buttons 
+// remove outline of the buttons
 button{
   outline: none !important;
 }

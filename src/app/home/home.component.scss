@@ -54,6 +54,7 @@
       & .list-item{
         line-height: 1.2;
         cursor: pointer;
+        padding: 1rem 0;
         &:hover{
           color: #f4f4f4d4;
         }
@@ -89,4 +90,65 @@
   }
   mat-sidenav-content{
     overflow-x: hidden !important;
+  }
+  // style for the modal
+
+  .flyout{
+    position: absolute;
+    top: 56px;
+    right:100px;
+
+    z-index: 13000;
+    & .flyout-container{
+      &::before{
+        content: "";
+      border-style: solid;
+      _border-style: dashed;
+      border-width: 9px;
+      border-color: transparent;
+      border-top-width: 0;
+      border-bottom: 9px solid #f4f4f4;
+      width: 0;
+      height: 0;
+      font-size: 0;
+      line-height: 0;
+      position: absolute;
+      right: 95px;
+      top: -9px;
+      }
+
+    border-radius: 3px;
+      width: 500px;
+      padding: 1rem 0;
+      display: flex;
+      background: #f4f4f4;
+      & .left-list,& .right-list{
+
+        & h4{
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+        & ul{
+          padding: 0;
+          list-style: none;
+          & li a{
+            color: #101010bf;
+            font-size: 13px;
+          padding: 0 0 7px;
+          }
+
+        }
+        flex:1;
+        padding:0 1rem;
+      }
+      & .left-list{
+        border-right: 1px solid #ccc;
+      }
+
+
+
+    }
+
+
+
   }
