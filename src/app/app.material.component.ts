@@ -23,6 +23,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { GalleriaModule } from 'primeng/galleria';
 import { DataViewModule } from 'primeng/dataview';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import { DataViewModule } from 'primeng/dataview';
     CarouselModule,
     ButtonModule,
     GalleriaModule,
-    DataViewModule
+    DataViewModule,
+    DropdownModule
   ],
   exports: [
     MatButtonModule,
@@ -77,7 +79,8 @@ import { DataViewModule } from 'primeng/dataview';
     CarouselModule,
     ButtonModule,
     GalleriaModule,
-    DataViewModule
+    DataViewModule,
+    DropdownModule
   ],
 })
 export class MaterialModule { }

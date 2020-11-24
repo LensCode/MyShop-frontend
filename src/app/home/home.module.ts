@@ -8,9 +8,10 @@ import { MainContentComponent } from './main-content/main-content.component';
 import {RatingModule} from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { MoreProductsComponent } from './more-products/more-products.component';
+import { ProductsCartComponent } from './products-cart/products-cart.component';
 
 @NgModule({
-  declarations: [HomeComponent, SidenavComponent, MainContentComponent, MoreProductsComponent],
+  declarations: [HomeComponent, SidenavComponent, MainContentComponent, MoreProductsComponent, ProductsCartComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
